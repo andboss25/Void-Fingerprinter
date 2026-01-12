@@ -1,0 +1,22 @@
+{
+    "head" : {
+        "server:Apache":"Apache",
+        "server:nginx/":"Ngnix",
+
+        "server:LiteSpeed":"LiteSpeed",
+
+        "server:cloudflare":"Cloudflare",
+        "cf-cache-status:":"Cloudflare",
+        "cf-ray:":"Cloudflare",
+
+        "server:Python/":"Flask",
+        "server:Werkzeug/":"Flask",
+
+        "server:waitress":"Waitress",
+
+        "link:/wp-json/>;":"Wordpress"
+    },
+    "body": {
+        "<meta name='generator' content='WordPress":"WordPress"
+    }
+}
