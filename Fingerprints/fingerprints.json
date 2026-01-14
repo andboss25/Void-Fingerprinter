@@ -11,10 +11,12 @@
 
         "server:Python/":"Flask",
         "server:Werkzeug/":"Flask",
-
+        "X-Powered-By:Express":"Express.js",
+        "X-Powered-By:PHP":"PHP",
+        "X-Powered-By:ASP.NET":"ASP.NET",
         "server:waitress":"Waitress",
 
-        "link:/wp-json/>;":"Wordpress"
+        "link:/wp-json/>;":"WordPress"
     },
     "body": {
         "<meta name='generator' content='WordPress":"WordPress"
