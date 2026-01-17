@@ -2,6 +2,7 @@
     "head" : {
         "server:Apache":"Apache",
         "server:nginx/":"Ngnix",
+        "server:nginx":"Ngnix",
 
         "server:LiteSpeed":"LiteSpeed",
 
@@ -13,6 +14,7 @@
         "server:Werkzeug/":"Flask",
         "X-Powered-By:Express":"Express.js",
         "X-Powered-By:PHP":"PHP",
+        "X-Powered-By: Gerbils":"PHP",
         "X-Powered-By:ASP.NET":"ASP.NET",
         "server:waitress":"Waitress",
 

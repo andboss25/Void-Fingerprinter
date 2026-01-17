@@ -2,6 +2,7 @@ from colorama import Fore
 import sys
 
 from Core import scan
+from Core import evaluate
 
 def help():
     print("Usage:")
@@ -17,6 +18,8 @@ def main():
         help()
         return
     
+    url = sys.argv[1]
+    
     Scanner = scan.Scanner()
     
     if "--timeout" in sys.argv:
@@ -27,7 +30,22 @@ def main():
     )
     
     print("Running initial scan on given url...")
-    Scanner.scan(sys.argv[1])
+
+    inital_scan = Scanner.scan(url)
+
+    stack = inital_scan[0]
+
+    print("Evaluating the response with another request...")
+    Evaluator = evaluate.Evaluator(
+        inital_scan[1],
+        inital_scan[2],
+        session=Scanner.session
+    )
+
+    Evaluator.analyze(
+        url,
+        stack
+    )
 
 
 if __name__ == "__main__":

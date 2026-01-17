@@ -38,6 +38,8 @@ class Scanner():
 
     def scan(self,url):
 
+        tech_stack = []
+
         try:
             initial_reqest = self.session.get(
                 url,
@@ -79,6 +81,7 @@ class Scanner():
                 print(f"The source is probably using {Fore.CYAN}'{self.head_fingerprints[header]}'{Fore.WHITE}"
                     + f" - based on {Fore.CYAN}'{split_header[0]}:{initial_reqest.headers.get(split_header[0])}'{Fore.WHITE} header."
                 )
+                tech_stack.append(self.head_fingerprints[header])
 
         for body_fingerprint in self.body_fingerprints:
             body_fingerprint: str
@@ -86,5 +89,12 @@ class Scanner():
             if body_fingerprint.capitalize() in initial_reqest.content.decode().capitalize():
                 print(f"The source is probably using {Fore.CYAN}'{self.body_fingerprints[body_fingerprint]}'{Fore.WHITE},"+ 
                       f" - a fingerprint seemingly appears in the response body {Fore.CYAN}'{body_fingerprint}'{Fore.WHITE}")
+                tech_stack.append(self.body_fingerprints[body_fingerprint])
+        
+        return (
+            list(set(tech_stack)),
+            initial_reqest.headers,
+            initial_reqest.content.decode()
+        )
 
             
